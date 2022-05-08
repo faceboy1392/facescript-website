@@ -1,14 +1,7 @@
-<head>
-    <title>Facescript | faceboy.dev</title>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-</head>
-<main>
-<body>
 # Facescript
 
 ## Values
 ---
-    <code>
 ```rb
 # Comments
 
@@ -29,15 +22,13 @@ false
 # Null
 null
 ```
-    </code>
 
 ## Variables
 ---
-<code>
 ```py
-# Can use either `=` or R-style `&#60;-`
+# Can use either `=` or R-style `<-`
 my_var = "Hello"
-other_var &#60;- "World"
+other_var <- "World"
 
 # Prints with newline
 echo my_var
@@ -45,11 +36,9 @@ echo my_var
 # Prints without newline
 print other_var
 ```
-    </code>
 
 ## Math
 ---
-    <code>
 ```py
 # Basic numeric math
 echo 5 + 3
@@ -61,10 +50,8 @@ echo "Hello " + "world"
 # And string multiplication
 echo "get out of my head " * 10
 ```
-    </code>
-    
+
 ### Math libary
-    <code>
 ```rb
 # Just like an import statement, it includes that module (in this case a standard library module) in the script
 uses Math
@@ -74,11 +61,9 @@ echo abs(-8)
 echo sqrt(25)
 echo pi
 ```
-    </code>
-        
+
 ## Operators
 ---
-    <code>
 ```rb
 echo true or false # true
 echo true and false # false
@@ -92,20 +77,18 @@ echo 3 * 6 # 18
 echo 20 / 4 # 5
 echo 15 % 4 # 3
 echo 2 ** 4 # 16
-echo 5 &#62; 3 # true
-echo 4 &#60; -3 # false
-echo 5 &#62;= 5 # true
-echo 5 &#60;= 6 # true
+echo 5 > 3 # true
+echo 4 < -3 # false
+echo 5 >= 5 # true
+echo 5 <= 6 # true
 echo 3.4 ~= 3.2 # true, rounds the two numbers to the nearest integer and then checks equality
 echo true ? "yes" : "no" # "yes"
 
-# `& | ^ ~ &#60;&#60; &#62;&#62;` bitwise operators will also exist
+# `& | ^ ~ << >>` bitwise operators will also exist
 ```
-    </code>
 
 ## Conditionals
 ---
-    <code>
 ```rb
 if true echo "beans"
 echo "goodbye world" if false
@@ -161,11 +144,9 @@ test username {
     end
 }
 ```
-    </code>
 
 ## Loops
 ---
-    <code>
 ```rb
 # Simple while loops
 while humans_exist do
@@ -173,7 +154,7 @@ while humans_exist do
 end
 
 # Simple for loops
-for (i = 0; i &#60; 100; i++) do
+for (i = 0; i < 100; i++) do
     echo "hello your virus has computer"
 end
 
@@ -182,13 +163,11 @@ for i in 1..100 do
 end
 
 # Another way to loop, uses a callback
-repeat 100 (i) -&#62; print "bruh "
+repeat 100 (i) -> print "bruh "
 ```
-    </code>
 
 ## Functions
 ---
-    <code>
 ```rb
 fun cool_fact() {
     echo "Bees have 5 eyes" 
@@ -197,7 +176,7 @@ fun cool_fact() {
 cool_fact() # echos the thing
 
 # Short-hand syntax
-fun cube(num) -&#62; num ** 3
+fun cube(num) -> num ** 3
 
 echo cube(3) # 27
 
@@ -212,16 +191,14 @@ greet(first_name: "Bob", last_name: "Fitzgerald")
 greet(last_name: "Fitzgerald", first_name: "Bob")
 
 # Callbacks
-fun call_function(callback, arg) -&#62; callback(arg)
-call_function((arg) -&#62; { echo arg }, "Hello world")
+fun call_function(callback, arg) -> callback(arg)
+call_function((arg) -> { echo arg }, "Hello world")
 
-# Callback syntax: "(" args?+ ")" -&#62; ("{" code+ "}") | expression
+# Callback syntax: "(" args?+ ")" -> ("{" code+ "}") | expression
 ```
-    </code>
 
 ## Data structures
 ---
-    <code>
 ```rb
 # List
 letters = ["A", "B", "C"]
@@ -237,11 +214,9 @@ for letter in letters do
     print "#{letter} "
 end
 ```
-    </code>
 
 ## Classes
 ---
-    <code>
 ```rb
 # Simplest class, a data class. Defined in a single line, and given paramters similar to that of functions. Paramter names become the names of the instance's equivalent fields
 data class Human (name, age, occupation)
@@ -279,6 +254,3 @@ epic_super_car.drive(12) # "Vroom vroom! Used 4 gallons of fuel."
 
 Car.contact_dealership() # "We'll be right with you. Please hold..."
 ```
-    </code>
-    </body>
-    </main>
