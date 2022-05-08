@@ -31,6 +31,7 @@ null
 
 ## Variables
 ---
+<code>
 ```py
 # Can use either `=` or R-style `&#60;-`
 my_var = "Hello"
@@ -42,9 +43,11 @@ echo my_var
 # Prints without newline
 print other_var
 ```
+    </code>
 
 ## Math
 ---
+    <code>
 ```py
 # Basic numeric math
 echo 5 + 3
@@ -56,8 +59,10 @@ echo "Hello " + "world"
 # And string multiplication
 echo "get out of my head " * 10
 ```
-
+    </code>
+    
 ### Math libary
+    <code>
 ```rb
 # Just like an import statement, it includes that module (in this case a standard library module) in the script
 uses Math
@@ -67,9 +72,11 @@ echo abs(-8)
 echo sqrt(25)
 echo pi
 ```
-
+    </code>
+        
 ## Operators
 ---
+    <code>
 ```rb
 echo true or false # true
 echo true and false # false
@@ -92,9 +99,11 @@ echo true ? "yes" : "no" # "yes"
 
 # `& | ^ ~ &#60;&#60; &#62;&#62;` bitwise operators will also exist
 ```
+    </code>
 
 ## Conditionals
 ---
+    <code>
 ```rb
 if true echo "beans"
 echo "goodbye world" if false
@@ -150,9 +159,11 @@ test username {
     end
 }
 ```
+    </code>
 
 ## Loops
 ---
+    <code>
 ```rb
 # Simple while loops
 while humans_exist do
@@ -171,9 +182,11 @@ end
 # Another way to loop, uses a callback
 repeat 100 (i) -&#62; print "bruh "
 ```
+    </code>
 
 ## Functions
 ---
+    <code>
 ```rb
 fun cool_fact() {
     echo "Bees have 5 eyes" 
@@ -202,9 +215,11 @@ call_function((arg) -&#62; { echo arg }, "Hello world")
 
 # Callback syntax: "(" args?+ ")" -&#62; ("{" code+ "}") | expression
 ```
+    </code>
 
 ## Data structures
 ---
+    <code>
 ```rb
 # List
 letters = ["A", "B", "C"]
@@ -220,9 +235,11 @@ for letter in letters do
     print "#{letter} "
 end
 ```
+    </code>
 
 ## Classes
 ---
+    <code>
 ```rb
 # Simplest class, a data class. Defined in a single line, and given paramters similar to that of functions. Paramter names become the names of the instance's equivalent fields
 data class Human (name, age, occupation)
@@ -260,5 +277,6 @@ epic_super_car.drive(12) # "Vroom vroom! Used 4 gallons of fuel."
 
 Car.contact_dealership() # "We'll be right with you. Please hold..."
 ```
+    </code>
     </body>
     </main>
