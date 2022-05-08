@@ -32,9 +32,9 @@ null
 ## Variables
 ---
 ```py
-# Can use either `=` or R-style `<-`
+# Can use either `=` or R-style `&#60;-`
 my_var = "Hello"
-other_var <- "World"
+other_var &#60;- "World"
 
 # Prints with newline
 echo my_var
@@ -83,14 +83,14 @@ echo 3 * 6 # 18
 echo 20 / 4 # 5
 echo 15 % 4 # 3
 echo 2 ** 4 # 16
-echo 5 > 3 # true
-echo 4 < -3 # false
-echo 5 >= 5 # true
-echo 5 <= 6 # true
+echo 5 &#62; 3 # true
+echo 4 &#60; -3 # false
+echo 5 &#62;= 5 # true
+echo 5 &#60;= 6 # true
 echo 3.4 ~= 3.2 # true, rounds the two numbers to the nearest integer and then checks equality
 echo true ? "yes" : "no" # "yes"
 
-# `& | ^ ~ << >>` bitwise operators will also exist
+# `& | ^ ~ &#60;&#60; &#62;&#62;` bitwise operators will also exist
 ```
 
 ## Conditionals
@@ -160,7 +160,7 @@ while humans_exist do
 end
 
 # Simple for loops
-for (i = 0; i < 100; i++) do
+for (i = 0; i &#60; 100; i++) do
     echo "hello your virus has computer"
 end
 
@@ -169,7 +169,7 @@ for i in 1..100 do
 end
 
 # Another way to loop, uses a callback
-repeat 100 (i) -> print "bruh "
+repeat 100 (i) -&#62; print "bruh "
 ```
 
 ## Functions
@@ -182,7 +182,7 @@ fun cool_fact() {
 cool_fact() # echos the thing
 
 # Short-hand syntax
-fun cube(num) -> num ** 3
+fun cube(num) -&#62; num ** 3
 
 echo cube(3) # 27
 
@@ -197,10 +197,10 @@ greet(first_name: "Bob", last_name: "Fitzgerald")
 greet(last_name: "Fitzgerald", first_name: "Bob")
 
 # Callbacks
-fun call_function(callback, arg) -> callback(arg)
-call_function((arg) -> { echo arg }, "Hello world")
+fun call_function(callback, arg) -&#62; callback(arg)
+call_function((arg) -&#62; { echo arg }, "Hello world")
 
-# Callback syntax: "(" args?+ ")" -> ("{" code+ "}") | expression
+# Callback syntax: "(" args?+ ")" -&#62; ("{" code+ "}") | expression
 ```
 
 ## Data structures
