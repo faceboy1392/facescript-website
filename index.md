@@ -1,5 +1,8 @@
 # Facescript
 
+# NEW NAME IDEA
+## "Aspen", not currently taken by any programming language
+
 ## Values
 ---
 ```rb
@@ -28,7 +31,7 @@ null
 ```py
 # Can use either `=` or R-style `<-`
 my_var = "Hello"
-other_var <- "World"
+other_var = "World"
 
 # Prints with newline
 echo my_var
@@ -254,3 +257,72 @@ epic_super_car.drive(12) # "Vroom vroom! Used 4 gallons of fuel."
 
 Car.contact_dealership() # "We'll be right with you. Please hold..."
 ```
+Fancier example here
+```rb
+# A class to represent user accounts
+class User {
+    @user_count = 0
+    # Fields that cannot be accessed outside the class. Since @users is private, the @login method should be used to try to log into a specific account.
+    private @users = []
+    private password
+
+    init(username, password) {
+        if not @check_existing(username) do
+            this.username = username
+            this.password = password
+            @user_count++
+            @users.add(this)
+        else echo "That username already exists!"
+    }
+
+    @check_existing(username) -> @users.find({ username: username }) != null
+
+    # A superclass method that will try to log into a specific user. If the login is successful, it returns the instance of that user.
+    @login(username, password) {
+        # Find the user by the username. Method will return null if it doesn't exist.
+        user = @users.find({ username: username })
+
+        if not user do
+            echo "That user doesn't exist"
+            return
+        end
+
+        # Check if the password is correct. Has to call the method on that user instance since password is a private field. If the password is correct, return the user.
+        if user.test_password(password) return this
+        else echo "Incorrect password"
+    }
+
+    # Check if a password is correct.
+    test_password(password) -> password == this.password
+
+    get username() -> "@#{this.username}"
+    set username(new_name) {
+        # Sets the username if that username is not already in use.
+        if not @users.find({ username: new_name }) do
+            this.username = new_name
+        else echo "That username already exists!"
+    }
+}
+
+bob = new User('epicbob39', 'thefitnessgrampacertest')
+anonymous = new User('xX_HackerFace64_Xx', 'password1')
+
+user = User.login('xX_HackerFace64_Xx', 'password1')
+other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
+```
+
+## Custom Operators
+---
+A custom operator can be anything that isn't already used in the language's grammar. For example, you can't define `*` as an operator, but something like `*!` is fine, since that on its own is not valid syntax by default.
+```rb
+# A custom binary operator (two operands) using `$` as its symbol that just returns the hypotenuse (a squared plus b squared)
+# The body simply acts like a function body. A not-null return statement is required
+define ((arg1) $ (arg2)) {
+    return arg1**2 + arg2**2
+}
+
+echo 3 $ 5 # 34
+echo 2 $ 3 * 3 # 39. Acts like ((2 $ 3) * 3), since custom operators will have the same precedence as function calls
+```
+
+## 
