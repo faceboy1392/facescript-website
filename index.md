@@ -307,6 +307,7 @@ class User {
 bob = new User('epicbob39', 'thefitnessgrampacertest')
 anonymous = new User('xX_HackerFace64_Xx', 'password1')
 
+# Logging in later
 user = User.login('xX_HackerFace64_Xx', 'password1')
 other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
 ```
