@@ -29,7 +29,6 @@ null
 ## Variables
 ---
 ```py
-# Can use either `=` or R-style `<-`
 my_var = "Hello"
 other_var = "World"
 
