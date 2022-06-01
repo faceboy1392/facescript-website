@@ -311,7 +311,7 @@ user = User.login('xX_HackerFace64_Xx', 'password1')
 other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
 ```
 
-## Custom Operators
+## Custom Operators (this might not actually be added, or maybe it will but not like this idk)
 ---
 A custom operator can be anything that isn't already used in the language's grammar. For example, you can't define `*` as an operator, but something like `*!` is fine, since that on its own is not valid syntax by default.
 ```rb
