@@ -95,15 +95,6 @@ echo true ? "yes" : "no" # "yes"
 if true echo "beans"
 echo "goodbye world" if false
 
-# These two do the same thig, can use do-end or { }
-if 5 == 5 do
-    echo "bruh"
-else if 3 == 4 do
-    echo "ok"
-else do
-    echo "huh"
-end
-
 if 5 == 5 {
     echo "bruh"
 } else if 3 == 4 {
@@ -126,24 +117,25 @@ test weekday_number {
     case 4: print "Thursday"
     case 5: print "Friday"
     case 6: print "Saturday"
+    default: print "Invalid day"
 }
 
 username = login()
 
 # Multi statement cases
 test username {
-    case "Bob"
+    case "Bob" {
         open_desktop()
         start_apps()
-    end
-    case "Admin"
+    }
+    case "Admin" {
         open_desktop()
         start_apps()
         open_admin_panel()
-    end
-    default
+    }
+    default {
         logout()
-    end
+    }
 }
 ```
 
@@ -151,18 +143,18 @@ test username {
 ---
 ```rb
 # Simple while loops
-while humans_exist do
+while humans_exist {
     dominate(world)
-end
+}
 
 # Simple for loops
-for (i = 0; i < 100; i++) do
+for (i = 0; i < 100; i++) {
     echo "hello your virus has computer"
-end
+}
 
-for i in 1..100 do
+for i in 1..100 {
     print "AAA"
-end
+}
 
 # Another way to loop, uses a callback
 repeat 100 (i) -> print "bruh "
@@ -212,9 +204,9 @@ echo employees.jim # "Software Engineer"
 echo employees.bob # "Manager"
 
 # Prints "A B C "
-for letter in letters do
+for letter in letters {
     print "#{letter} "
-end
+}
 ```
 
 ## Classes
@@ -266,12 +258,12 @@ class User {
     private password
 
     init(username, password) {
-        if not @check_existing(username) do
+        if not @check_existing(username) {
             this.username = username
             this.password = password
             @user_count++
             @users.add(this)
-        else echo "That username already exists!"
+        } echo "That username already exists!"
     }
 
     @check_existing(username) -> @users.find({ username: username }) != null
@@ -281,10 +273,10 @@ class User {
         # Find the user by the username. Method will return null if it doesn't exist.
         user = @users.find({ username: username })
 
-        if not user do
+        if not user {
             echo "That user doesn't exist"
             return
-        end
+        }
 
         # Check if the password is correct. Has to call the method on that user instance since password is a private field. If the password is correct, return the user.
         if user.test_password(password) return this
@@ -297,9 +289,9 @@ class User {
     get username() -> "@#{this.username}"
     set username(new_name) {
         # Sets the username if that username is not already in use.
-        if not @users.find({ username: new_name }) do
+        if not @users.find({ username: new_name }) {
             this.username = new_name
-        else echo "That username already exists!"
+        } else echo "That username already exists!"
     }
 }
 
@@ -324,5 +316,3 @@ define ((arg1) $ (arg2)) {
 echo 3 $ 5 # 34
 echo 2 $ 3 * 3 # 39. Acts like ((2 $ 3) * 3), since custom operators will have the same precedence as function calls
 ```
-
-## 
