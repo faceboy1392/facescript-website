@@ -1,12 +1,13 @@
-# Facescript
-
-# NEW NAME IDEA
-## "Aspen", not currently taken by any programming language
+# Aspen
 
 ## Values
 ---
 ```rb
 # Comments
+
+#/
+multiline comments (even tho the syntax highlighting shows this text as not a comment it still is a comment)
+/#
 
 # String
 'Hello'
@@ -79,6 +80,7 @@ echo 3 * 6 # 18
 echo 20 / 4 # 5
 echo 15 % 4 # 3
 echo 2 ** 4 # 16
+echo ~5.6 # 6, squiggly ~ rounds a number to the nearest integer
 echo 5 > 3 # true
 echo 4 < -3 # false
 echo 5 >= 5 # true
@@ -86,7 +88,7 @@ echo 5 <= 6 # true
 echo 3.4 ~= 3.2 # true, rounds the two numbers to the nearest integer and then checks equality
 echo true ? "yes" : "no" # "yes"
 
-# `& | ^ ~ << >>` bitwise operators will also exist
+# & | ^ ~ << >>` bitwise operators will also exist
 ```
 
 ## Conditionals
@@ -119,6 +121,7 @@ test weekday_number {
     case 6: print "Saturday"
     default: print "Invalid day"
 }
+
 
 username = login()
 
