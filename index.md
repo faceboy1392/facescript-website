@@ -39,6 +39,7 @@ echo my_var
 # Prints without newline
 print other_var
 ```
+> IMPORTANT NOTE TO SELF: Make `echo` and `print` act as expressions. They should be prefix operators that return the string that was printed.
 
 ## Math
 ---
@@ -88,7 +89,16 @@ echo 5 <= 6 # true
 echo 3.4 ~= 3.2 # true, rounds the two numbers to the nearest integer and then checks equality
 echo true ? "yes" : "no" # "yes"
 
+# also <=> like what ruby has
+
 # & | ^ ~ << >>` bitwise operators will also exist
+
+# Now here is a tricky one
+# (lists shown in a little more detail later and functions in functions.md)
+my_list = [1, 2, 3]
+my_list.=reverse
+
+# .= as used here is basically shorthand for my_list = my_list.reverse
 ```
 
 ## Conditionals
@@ -269,6 +279,7 @@ class User {
         } echo "That username already exists!"
     }
 
+    # this usage of .find() might change, not sure
     @check_existing(username) -> @users.find({ username: username }) != null
 
     # A superclass method that will try to log into a specific user. If the login is successful, it returns the instance of that user.
