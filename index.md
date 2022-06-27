@@ -1,4 +1,5 @@
 # Aspen
+thats what im calling this language, aspe
 
 ## Values
 ---
@@ -34,25 +35,24 @@ my_var = "Hello"
 other_var = "World"
 
 # Prints with newline
-echo my_var
+println( my_var )
 
 # Prints without newline
-print other_var
+print( other_var )
 ```
-> IMPORTANT NOTE TO SELF: Make `echo` and `print` act as expressions. They should be prefix operators that return the string that was printed.
 
 ## Math
 ---
 ```py
 # Basic numeric math
-echo 5 + 3
-echo 23 % 7
+println( 5 + 3 )
+println( 23 % 7 )
 # Exponentiation
-echo 5 ** 3
+println( 5 ** 3 )
 # String concatenation also exists
-echo "Hello " + "world"
+println( "Hello " + "world" )
 # And string multiplication
-echo "get out of my head " * 10
+println( "get out of my head " * 10 )
 ```
 
 ### Math libary
@@ -61,33 +61,33 @@ echo "get out of my head " * 10
 uses Math
 
 # Examples of some functions, using a module makes its contents available in the global scope
-echo abs(-8)
-echo sqrt(25)
-echo pi
+println( abs(-8) )
+println( sqrt(25) )
+println( pi )
 ```
 
 ## Operators
 ---
 ```rb
-echo true or false # true
-echo true and false # false
-echo not true # false
-echo false || true # true
-echo true && true # false
-echo !false # true
-echo 1 + 2 # 3
-echo 3 - 4 # -1
-echo 3 * 6 # 18
-echo 20 / 4 # 5
-echo 15 % 4 # 3
-echo 2 ** 4 # 16
-echo ~5.6 # 6, squiggly ~ rounds a number to the nearest integer
-echo 5 > 3 # true
-echo 4 < -3 # false
-echo 5 >= 5 # true
-echo 5 <= 6 # true
-echo 3.4 ~= 3.2 # true, rounds the two numbers to the nearest integer and then checks equality
-echo true ? "yes" : "no" # "yes"
+println( true or false ) # true
+println( true and false ) # false
+println( not true ) # false
+println( false || true ) # true
+println( true && true ) # false
+println( !false ) # true
+println( 1 + 2 ) # 3
+println( 3 - 4 ) # -1
+println( 3 * 6 ) # 18
+println( 20 / 4 ) # 5
+println( 15 % 4 ) # 3
+println( 2 ** 4 ) # 16
+println( ~5.6 ) # 6, squiggly ~ rounds a number to the nearest integer
+println( 5 > 3 ) # true
+println( 4 < -3 ) # false
+println( 5 >= 5 ) # true
+println( 5 <= 6 )# true
+println( 3.4 ~= 3.2 ) # true, rounds the two numbers to the nearest integer and then checks equality
+println( true ? "yes" : "no" ) # "yes"
 
 # also <=> like what ruby has
 
@@ -104,32 +104,32 @@ my_list.=reverse
 ## Conditionals
 ---
 ```rb
-if true echo "beans"
-echo "goodbye world" if false
+if true println( "beans" )
+println( "goodbye world" ) if false
 
 if 5 == 5 {
-    echo "bruh"
+    println( "bruh" )
 } else if 3 == 4 {
-    echo "ok"
+    println( "ok" )
 } else {
-    echo "huh"
+    println( "huh" )
 }
 
-echo 5 + 5 != 248 ? "hello" : "world"
+println( 5 + 5 != 248 ? "hello" : "world" )
 
 # Switch statement stuff, "test"s against multiple "case"s
 weekday_number = some_function_that_returns_a_number_between_0_and_6_representing_the_current_day_of_the_week()
 
 # Single statement cases
 test weekday_number {
-    case 0: print "Sunday"
-    case 1: print "Monday"
-    case 2: print "Tuesday"
-    case 3: print "Wednesday"
-    case 4: print "Thursday"
-    case 5: print "Friday"
-    case 6: print "Saturday"
-    default: print "Invalid day"
+    case 0: print( "Sunday" )
+    case 1: print( "Monday" )
+    case 2: print( "Tuesday" )
+    case 3: print( "Wednesday" )
+    case 4: print( "Thursday" )
+    case 5: print( "Friday" )
+    case 6: print( "Saturday" )
+    default: print( "Invalid day" )
 }
 
 
@@ -162,35 +162,35 @@ while humans_exist {
 
 # Simple for loops
 for (i = 0; i < 100; i++) {
-    echo "hello your virus has computer"
+    println( "hello your virus has computer" )
 }
 
 for i in 1..100 {
-    print "AAA"
+    print( "AAA" )
 }
 
 # Another way to loop, uses a callback
-repeat 100 (i) -> print "bruh "
+repeat 100 (i) -> print( "bruh " )
 ```
 
 ## Functions
 ---
 ```rb
 fun cool_fact() {
-    echo "Bees have 5 eyes" 
+    println( "Bees have 5 eyes" )
 }
 
-cool_fact() # echos the thing
+cool_fact() # println(s the thing
 
 # Short-hand syntax
 fun cube(num) -> num ** 3
 
-echo cube(3) # 27
+println( cube(3) ) # 27
 
 # Named parameters
 fun greet(:first_name, :last_name) {
     # Template strings
-    echo "Hello #{first_name + last_name}"
+    println( "Hello #{first_name + last_name}" )
 }
 
 # Named arguments can be passed in any order, these do the same thing
@@ -199,7 +199,7 @@ greet(last_name: "Fitzgerald", first_name: "Bob")
 
 # Callbacks
 fun call_function(callback, arg) -> callback(arg)
-call_function((arg) -> { echo arg }, "Hello world")
+call_function((arg) -> { println( arg ) }, "Hello world")
 
 # Callback syntax: "(" args?+ ")" -> ("{" code+ "}") | expression
 ```
@@ -209,16 +209,16 @@ call_function((arg) -> { echo arg }, "Hello world")
 ```rb
 # List
 letters = ["A", "B", "C"]
-echo letters[1] # "B"
+println( letters[1] ) # "B"
 
 # Dictionary
 employees = [jim: "Software Engineer", bob: "Manager", eric: "Coffee Coordinator"]
-echo employees.jim # "Software Engineer"
-echo employees.bob # "Manager"
+println( employees.jim ) # "Software Engineer"
+println( employees.bob ) # "Manager"
 
 # Prints "A B C "
 for letter in letters {
-    print "#{letter} "
+    print( "#{letter} " )
 }
 ```
 
@@ -229,8 +229,8 @@ for letter in letters {
 data class Human (name, age, occupation)
 
 tom = new Human("Tom", 26, "Unemployed")
-echo tom.name # "Tom"
-echo tom.occupation # "Unemployed"
+println( tom.name ) # "Tom"
+println( tom.occupation ) # "Unemployed"
 
 # More complex classes (yes cars are more complex than people)
 class Car {
@@ -246,13 +246,13 @@ class Car {
     }
 
     drive(miles) {
-        print "Vroom vroom! "
-        echo "Used #{miles / this.mpg} gallons of fuel."
+        print( "Vroom vroom! " )
+        println( "Used #{miles / this.mpg} gallons of fuel." )
     }
 
     # Class function, only available on the class itself
     @contact_dealership() {
-        echo "We'll be right with you. Please hold..."
+        println( "We'll be right with you. Please hold..." )
     }
 }
 
@@ -276,7 +276,7 @@ class User {
             this.password = password
             @user_count++
             @users.add(this)
-        } echo "That username already exists!"
+        } else println( "That username already exists!" )
     }
 
     # this usage of .find() might change, not sure
@@ -288,13 +288,13 @@ class User {
         user = @users.find({ username: username })
 
         if not user {
-            echo "That user doesn't exist"
+            println( "That user doesn't exist" )
             return
         }
 
         # Check if the password is correct. Has to call the method on that user instance since password is a private field. If the password is correct, return the user.
         if user.test_password(password) return this
-        else echo "Incorrect password"
+        else println( "Incorrect password" )
     }
 
     # Check if a password is correct.
@@ -305,7 +305,7 @@ class User {
         # Sets the username if that username is not already in use.
         if not @users.find({ username: new_name }) {
             this.username = new_name
-        } else echo "That username already exists!"
+        } else println( "That username already exists!" )
     }
 }
 
@@ -320,6 +320,8 @@ other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
 ## Custom Operators (this might not actually be added, or maybe it will but not like this idk)
 ---
 A custom operator can be anything that isn't already used in the language's grammar. For example, you can't define `*` as an operator, but something like `*!` is fine, since that on its own is not valid syntax by default.
+
+> this probably wont be like this, im sure ill change it later, this is just a placeholder idea
 ```rb
 # A custom binary operator (two operands) using `$` as its symbol that just returns the hypotenuse (a squared plus b squared)
 # The body simply acts like a function body. A not-null return statement is required
@@ -327,6 +329,6 @@ define ((arg1) $ (arg2)) {
     return arg1**2 + arg2**2
 }
 
-echo 3 $ 5 # 34
-echo 2 $ 3 * 3 # 39. Acts like ((2 $ 3) * 3), since custom operators will have the same precedence as function calls
+println( 3 $ 5 ) # 34
+println( 2 $ 3 * 3 ) # 39. Acts like ((2 $ 3) * 3), since custom operators will have the same precedence as function calls
 ```

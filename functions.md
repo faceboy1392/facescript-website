@@ -1,4 +1,8 @@
 # Aspen Built-in Functions & Standard Library Stuff
+> NOTE: very very very work in progress, a lot of things will be missing
+
+## Native functions, built into the compiler
+---
 ```rb
 # type conversion
 echo str(5) # '5'
@@ -7,12 +11,11 @@ echo str(true) # 'true'
 echo num('20') # 20
 echo num('2.1') # 2.1
 
-# int() rounds to the nearest integer
+# int() rounds to the nearest integer if it has decimals
 echo int(5.2) # 5
 echo int('19.4') # 19
 
-# since there isn't any type distinction between ints or floats, there is no float() function
-
+# since there isn't any type distinction between ints or floats, there is no float() function. All numbers are just double precision floating point numbers behind the scenes
 
 echo type('hello') # 'string'
 # type() can return 'number', 'string', 'boolean', 'null' 'nan', 'function', 'list', 'table', 'class', or 'class instance'
@@ -22,12 +25,12 @@ echo type('hello') # 'string'
 
 > `parse_num()` and `parse_int()` will also exist, I don't know the specifics of what I want them to be capable of but the difference between them and the num() and int() functions is that the num() and int() functions are for converting between types mostly, while these two are for parsing more advanced strings into numbers. For example, `parse_num('2489E+2')` will return whatever the heck that number is.
 
-> `eval` may be tricky, especially defining the scope of things properly. Hopefully I can implement it in such a way that it can be used relatively safely. Being able to execute without allowing native functions, setting an execution time limit, passing specific functions or arguments into it, etc.a
+> `eval()` may be tricky, especially defining the scope of things properly. Hopefully I can implement it in such a way that it can be used relatively safely. Being able to execute without allowing native functions, setting an execution time limit, passing specific functions or arguments into it, etc.
 
-## Primitive value methods
+## Methods on primitive values
 ---
 ```rb
-# btw everything should have a .to_str() method 
+# btw everything will have a .to_str() method 
 
 my_bool = true
 my_number = 123.456
@@ -47,9 +50,10 @@ my_string.capitalize()
 my_string.split(' ')
 my_string.match(/mayonnaise/)
 
-my_string.pad_start(20, ' ')
+my_string.pad_start(20, ' ') # if the string is shorter than the specified length, it adds the second argument to the beginning of the string until it reaches the desired length
 my_string.pad_end(30, '.')
 
+# these also would support regex
 my_string.replace('hello', 'goodbye')
 my_string.replace_all('l', '1')
 
@@ -79,7 +83,7 @@ users[-1] # 'sam'
 users.add('bob') # adds item to the end of the list
 users.push('Xx_HackerBoyAnonymous1239_xX') # pushes it to the front of the list
 users.remove('eric') # removes any matching items
-users.pop() # mutably removes and returns the last item
+users.pop() # removes and returns the last item
 users.pop_first() # .pop() but removes and returns the item at the beginning of the list
 users.size # length
 users.first # first item in the list
@@ -87,10 +91,10 @@ users.last # last item in the list
 users.last_index # size - 1
 users.reverse
 users.concat(['batman', 'lava boy'])
-users.index_of('katrina') # returns the index of the item
+users.index_of('katrina') # returns the index of the first item to have a matching value
 users.fill('bruh') # just replaces all items with that
-users.fill('mr electric', 10) # fills the first 10 items of the array with that value, grows array to 10 if its too small
-users.has('mr electric') # includes
+users.fill('mr electric', 10) # fills the first 10 items of the list with that value, grows list to 10 if its too small
+users.has('mr electric') # if the list includes that value
 users.flat() # like javascript array.flat()
 
 users.slice(1, 3)
@@ -98,7 +102,7 @@ users.divide(4) # divides the array into 4 quarters and returns an array contain
 users.to_str()
 users.join(', ')
 
-# also need array iterators with callbacks as arguments
+# array iterators also would exist, like .each() to run a callback for each item, .map() to run a callback to modify each item, .find(), .sort(), .filter(), and other stuff would also exist, etc
 ```
 ---
 ### Table
@@ -107,7 +111,7 @@ inventory = { banana: 15, burger: 4, mawn_lower: 47 }
 
 inventory.mayonnaise = 7
 
-# also there should be a warning that the compiler gives you if you make a table with a key beginning with an underscore, it wont stop you from doing it but it will recommend not doing it because things starting with underscores are built in properties, also underscored properties will be filtered out of stuff like lists of keys or values
+# also the compiler will give you a warning if you try to manually assign a value to a key starting with an underscore, it wont stop you from running the code but it will warn you
 
 inventory._keys # list of keys
 inventory._values # list of values
@@ -115,6 +119,8 @@ inventory._pairs # something like [['banana', 15], ['burger', 4], ...]
 ```
 
 ## Time
+
+> Very work in progress, has no timezone support or anything which isnt great, and there are still a lot of functions i need to add, so just dont pay any attention to how useless this is so far
 ---
 ```rb
 # Ways of using the Time class
@@ -147,8 +153,8 @@ now.unix # unix timestamp
 now.sinceUnixEpoch # all the above unit properties exist on here as well (except unix timestamp) but they count the number of that unit that has elapsed since the unix epoch
 
 # these just change the `hours` property to be out of 12 or 24. Converting back to 24 will internally use the `morning` or `afternoon` properties to figure things out.
-now.as_12_hour_format()
-now.as_24_hour_format()
+now.as_12h_format()
+now.as_24h_format()
 now.to_iso_string()
 # '2019-01-25T02:00:00.000Z'
 # ISO 8601 string thing, also ignore the fact that it is using a completely different time, idk how to convert to ISO 8601, ill figure it out
@@ -157,7 +163,6 @@ now.to_iso_string()
 now.is_morning
 now.is_afternoon
 now.is_leap_year
-
 
 # time math
 now = now.add({ hours: 5 })
