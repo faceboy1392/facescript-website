@@ -1,5 +1,5 @@
 # Aspen
-thats what im calling this language, aspe
+thats what im calling this language, aspen
 
 ## Values
 ---
