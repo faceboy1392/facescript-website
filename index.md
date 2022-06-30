@@ -1,6 +1,8 @@
 # Aspen
 thats what im calling this language, aspen
 
+this is an early version, im also tryna design a better static typed version with less bad design
+
 ## Values
 ---
 ```rb
@@ -30,9 +32,9 @@ null
 
 ## Variables
 ---
-```py
-my_var = "Hello"
-other_var = "World"
+```rb
+var my_var = "Hello"
+var other_var = "World"
 
 # Prints with newline
 println( my_var )
@@ -43,7 +45,7 @@ print( other_var )
 
 ## Math
 ---
-```py
+```rb
 # Basic numeric math
 println( 5 + 3 )
 println( 23 % 7 )
@@ -95,7 +97,7 @@ println( true ? "yes" : "no" ) # "yes"
 
 # Now here is a tricky one
 # (lists shown in a little more detail later and functions in functions.md)
-my_list = [1, 2, 3]
+var my_list = [1, 2, 3]
 my_list.=reverse
 
 # .= as used here is basically shorthand for my_list = my_list.reverse
@@ -118,7 +120,7 @@ if 5 == 5 {
 println( 5 + 5 != 248 ? "hello" : "world" )
 
 # Switch statement stuff, "test"s against multiple "case"s
-weekday_number = some_function_that_returns_a_number_between_0_and_6_representing_the_current_day_of_the_week()
+var weekday_number = some_function_that_returns_a_number_between_0_and_6_representing_the_current_day_of_the_week()
 
 # Single statement cases
 test weekday_number {
@@ -133,7 +135,7 @@ test weekday_number {
 }
 
 
-username = login()
+var username = login() # a function that doesnt exist but just pretend it does for the sake of this example
 
 # Multi statement cases
 test username {
@@ -161,7 +163,7 @@ while humans_exist {
 }
 
 # Simple for loops
-for (i = 0; i < 100; i++) {
+for (var i = 0; i < 100; i++) {
     println( "hello your virus has computer" )
 }
 
@@ -208,11 +210,11 @@ call_function((arg) -> { println( arg ) }, "Hello world")
 ---
 ```rb
 # List
-letters = ["A", "B", "C"]
+var letters = ["A", "B", "C"]
 println( letters[1] ) # "B"
 
 # Dictionary
-employees = [jim: "Software Engineer", bob: "Manager", eric: "Coffee Coordinator"]
+var employees = [jim: "Software Engineer", bob: "Manager", eric: "Coffee Coordinator"]
 println( employees.jim ) # "Software Engineer"
 println( employees.bob ) # "Manager"
 
@@ -226,6 +228,7 @@ for letter in letters {
 ---
 ```rb
 # Simplest class, a data class. Defined in a single line, and given paramters similar to that of functions. Paramter names become the names of the instance's equivalent fields
+# NOTE: im realizing now this seems a lot like a struct so i might just replace it with something like that, i dont know
 data class Human (name, age, occupation)
 
 tom = new Human("Tom", 26, "Unemployed")
@@ -256,7 +259,7 @@ class Car {
     }
 }
 
-epic_super_car = new Car("Honda Civic", 1482, 3)
+var epic_super_car = new Car("Honda Civic", 1482, 3)
 epic_super_car.drive(12) # "Vroom vroom! Used 4 gallons of fuel."
 
 Car.contact_dealership() # "We'll be right with you. Please hold..."
@@ -309,12 +312,12 @@ class User {
     }
 }
 
-bob = new User('epicbob39', 'thefitnessgrampacertest')
-anonymous = new User('xX_HackerFace64_Xx', 'password1')
+var bob = new User('epicbob39', 'thefitnessgrampacertest')
+var anonymous = new User('xX_HackerFace64_Xx', 'password1')
 
 # Logging in later
-user = User.login('xX_HackerFace64_Xx', 'password1')
-other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
+var user = User.login('xX_HackerFace64_Xx', 'password1')
+var other_user = User.login('epicbob39', 'bruh') # "Incorrect password"
 ```
 
 ## Custom Operators (this might not actually be added, or maybe it will but not like this idk)
